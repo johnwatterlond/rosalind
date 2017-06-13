@@ -18,16 +18,25 @@ def perms_of_len_n(n):
     return [perm for perm in perms]
 
 
+def format_str(n):
+    """Returns a string used to str.format(len_n_tuple)."""
+    s = ''
+    for x in range(n):
+       s = s + '{0[' + '{}'.format(x) + ']} '
+    return s
+
+
 def solve_problem(n):
     """Create file in cwd 'perm_answer.txt' containing solution."""
     fout = open('perm_answer.txt', 'w')
     perms = perms_of_len_n(n)
+    form = format_str(n)
 
     fout.write(str(num_perms(n)))
     fout.write('\n')
 
     for perm in perms:
-        fout.write('{0[0]}  {0[1]}  {0[2]}'.format(perm))
+        fout.write(form.format(perm))
         fout.write('\n')
 
 
