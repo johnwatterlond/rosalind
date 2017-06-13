@@ -41,9 +41,9 @@ def solve_problem(n):
 
 
 def main():
-    n = input('Enter an integer.\n> ')
+    f = input('Location of rosalind_perm.txt?\n> ')
+    n = open(f).read().strip()
     solve_problem(int(n))
-
 
 if __name__ == '__main__':
     main()
