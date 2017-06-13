@@ -10,23 +10,19 @@ def reverse_string(s):
 
 def complement(s):
     """Returns the DNA complement of string s."""
-    l1 = list(s)
-    for i, l in enumerate(l1):
-        if l == 'A':
-            l1[i] = 'T'
-        elif l == 'T':
-            l1[i] = 'A'
-        elif l == 'C':
-            l1[i] = 'G'
-        elif l == 'G':
-            l1[i] = 'C'
-    return ''.join(l1)
+    mapping = str.maketrans('ATCG', 'TAGC')
+    return s.translate(mapping)
+
+
+def reverse_complement(s):
+    """Return reverse complement of DNA string s."""
+    return complement(reverse_string(s))
 
 
 def solve_problem(s):
     """Create file in cwd 'revc_answer.txt' containing solution."""
     fout = open('revc_answer.txt', 'w')
-    fout.write(complement(reverse_string(s)))
+    fout.write(reverse_complement(s))
     fout.close()
 
 

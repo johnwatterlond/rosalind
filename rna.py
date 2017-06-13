@@ -16,7 +16,8 @@ def solve_problem(s):
 
 
 def main():
-    s = open(input('Location of rosalind_rna.txt?\n> ')).read().strip()
+    f = input('Location of rosalind_rna.txt?\n> ')
+    s = open(f).read().strip()
     solve_problem(s)
 
 
