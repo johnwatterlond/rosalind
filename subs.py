@@ -22,7 +22,7 @@ def find_all_sub(s, sub):
 
 
 def format_list_to_str(l):
-    """Convert list l into string."""
+    """Convert list l into string with elements sep. by a space."""
     return ' '.join(map(str, l))
 
 
