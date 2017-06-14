@@ -17,24 +17,11 @@ def perms_of_len_n(n):
     perms = itertools.permutations(list(range(1, n + 1)))
     return [perm for perm in perms]
 
-# don't need this.
-# can replace using
-#       .format()
-# with
-#       ' '.join(map(str, l))
-def format_str(n):
-    """Returns a string used to str.format(len_n_tuple)."""
-    s = ''
-    for x in range(n):
-       s = s + '{0[' + '{}'.format(x) + ']} '
-    return s
-
 
 def solve_problem(n):
     """Create file in cwd 'perm_answer.txt' containing solution."""
     fout = open('perm_answer.txt', 'w')
     perms = perms_of_len_n(n)
-    #form = format_str(n)
 
     fout.write(str(num_perms(n)))
     fout.write('\n')
