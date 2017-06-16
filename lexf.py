@@ -10,6 +10,7 @@ def all_strings(s, n):
     """
     Return list of all strings of length n that can be formed with
     letters from string s.
+    
     Returned list is in lexicographic order.
     """
     prods = itertools.product(list(s), repeat=n)

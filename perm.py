@@ -34,8 +34,8 @@ def solve_problem(n):
 
 
 def main():
-    f = input('Location of rosalind_perm.txt?\n> ')
-    n = open(f).read().strip()
+    location = input('Location of rosalind_perm.txt?\n> ')
+    n = open(location).read().strip()
     solve_problem(int(n))
 
 
