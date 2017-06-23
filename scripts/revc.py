@@ -8,28 +8,31 @@ def reverse_string(s):
     return s[::-1]
 
 
-def complement(s):
-    """Returns the DNA complement of string s."""
-    mapping = str.maketrans('ATCG', 'TAGC')
-    return s.translate(mapping)
+def dna_complement(dna_string):
+    """Returns the DNA complement of DNA string dna_string."""
+    complement_dict = {'A':'T', 'T':'A', 'C':'G', 'G':'C'}
+    mapping = str.maketrans(complement_dict)
+    return dna_string.translate(mapping)
 
 
-def reverse_complement(s):
-    """Return reverse complement of DNA string s."""
-    return complement(reverse_string(s))
+def reverse_complement(dna_string):
+    """Return reverse complement of DNA string dna_string."""
+    return dna_complement(reverse_string(dna_string))
 
 
 def solve_problem(s):
-    """Create file in cwd 'revc_answer.txt' containing solution."""
-    fout = open('revc_answer.txt', 'w')
+    """Create file '../output/revc_answer.txt' containing solution."""
+    fout = open('../output/revc_answer.txt', 'w')
     fout.write(reverse_complement(s))
     fout.close()
 
 
 def main():
-    f = input('Location of rosalind_revc.txt?\n> ')
-    s = open(f).read().strip()
-    solve_problem(s)
+    location = '../datasets/rosalind_revc.txt'
+    fin = open(location)
+    dna_string = fin.readline().strip()
+    solve_problem(dna_string)
+    fin.close()
 
 
 if __name__ == '__main__':
