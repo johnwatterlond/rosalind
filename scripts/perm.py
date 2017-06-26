@@ -15,28 +15,38 @@ def num_perms(n):
 def perms_of_len_n(n):
     """Return list of all permutations of length n."""
     perms = itertools.permutations(list(range(1, n + 1)))
-    return [perm for perm in perms]
+    return list(perms)
+
+
+def format_perm_to_str(perm):
+    """
+    Convert permutation perm into string with elements
+    separated by a space.
+    """
+    return ' '.join(map(str, perm))
 
 
 def solve_problem(n):
-    """Create file in cwd 'perm_answer.txt' containing solution."""
-    fout = open('perm_answer.txt', 'w')
+    """Create file '../output/perm_answer.txt' containing solution."""
+    fout = open('../output/perm_answer.txt', 'w')
     perms = perms_of_len_n(n)
 
     fout.write(str(num_perms(n)))
     fout.write('\n')
 
     for perm in perms:
-        fout.write(' '.join(map(str, perm)))
+        fout.write(format_perm_to_str(perm))
         fout.write('\n')
 
     fout.close()
 
 
 def main():
-    location = input('Location of rosalind_perm.txt?\n> ')
-    n = open(location).read().strip()
+    location = '../datasets/rosalind_perm.txt'
+    fin = open(location)
+    n = fin.read().strip()
     solve_problem(int(n))
+    fin.close()
 
 
 if __name__ == '__main__':
