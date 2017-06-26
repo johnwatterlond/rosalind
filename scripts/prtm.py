@@ -39,8 +39,10 @@ def solve_problem(prot_string):
 
 def main():
     location = '../datasets/rosalind_prtm.txt'
-    prot_string = open(location).read().strip()
+    fin = open(location)
+    prot_string = fin.read().strip()
     solve_problem(prot_string)
+    fin.close()
 
 
 if __name__ == '__main__':
