@@ -27,7 +27,7 @@ def solve_problem(s, sub):
 
 
 def main():
-    location = '../datasets/rosalind_gc.txt'
+    location = '../datasets/rosalind_subs.txt'
     fin = open(location)
     s = fin.readline().strip()
     sub = fin.readline().strip()
